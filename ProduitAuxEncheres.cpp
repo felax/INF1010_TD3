@@ -29,8 +29,8 @@ double ProduitAuxEncheres::obtenirPrixBase() const
 ostream& operator<<(ostream& os, const ProduitAuxEncheres& produit)
 {
 	os  << static_cast<Produit>(produit)
-        << "Prix de base " << produit.obtenirPrixBase << endl
-        << "Identifiant Client " << produit.obtenirIdentifiantClient << endl;
+        << "Prix de base " << produit.obtenirPrixBase() << endl
+        << "Identifiant Client " << produit.obtenirIdentifiantClient() << endl;
     return os;
 }
 

@@ -18,7 +18,7 @@ vector<Produit*> Fournisseur::obtenirCatalogue() const
     return contenuCatalogue_;
 }
 
-Satisfaction Fournisseur::obternirSatisfaction() const
+Satisfaction Fournisseur::obtenirSatisfaction() const
 {
     return satisfaction_;
 }
@@ -36,7 +36,7 @@ void Fournisseur::ajouterProduit(Produit* produit)
 void Fournisseur::enleverProduit(Produit* produit)
 {
     bool found = false;
-    for (int i = 0; i < contenuCatalogue_.size() || found = true; i++) 
+    for (int i = 0; i < contenuCatalogue_.size() || found == true; i++) 
         if (*produit == *contenuCatalogue_[i]) {
             contenuCatalogue_[i] = contenuCatalogue_[contenuCatalogue_.size() - 1];
             contenuCatalogue_.pop_back();
@@ -58,6 +58,6 @@ ostream& operator<<(ostream & os, Fournisseur& fournisseur)
     os << "Fournisseur: " << static_cast<Usager>(fournisseur) << "notes ";
     for (int i = 0; i < NIVEAUX_SATISFACTION; i++)
         os << i << ": " << fournisseur.satisfaction_.niveaux_[i] << endl;
-        
+
     return os;
 }
