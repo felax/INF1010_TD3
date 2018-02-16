@@ -44,7 +44,7 @@ private :
 	string nom_;
 	int reference_;
     double prix_;
-	Fournisseur & fournisseur_;
+	Fournisseur& fournisseur_;
 	TypeProduit type_;
 
 };

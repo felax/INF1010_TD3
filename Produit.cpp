@@ -6,8 +6,8 @@
 
 #include "Produit.h"
 
-Produit::Produit(Fournisseur& fournisseur,const string& nom, int reference, 
-				 double prix,TypeProduit type) 
+Produit::Produit(Fournisseur& fournisseur, const string& nom, int reference, 
+				 double prix, TypeProduit type) 
 {
 	fournisseur_ = fournisseur; //pointeur p-e?
 	fournisseur_.ajouterProduit(this);
