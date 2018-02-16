@@ -6,14 +6,20 @@
 
 #include "Produit.h"
 
-Produit::Produit(Fournisseur& fournisseur,const string& nom, int reference, double prix,TypeProduit type) 
+Produit::Produit(Fournisseur& fournisseur,const string& nom, int reference, 
+				 double prix,TypeProduit type) 
 {
-	// à faire
+	fournisseur_ = fournisseur; //pointeur p-e?
+	fournisseur_.ajouterProduit(this);
+	nom_ = nom;
+	reference_ = reference;
+	prix_ = prix;
+	type_ = type; //pointeur?
 }
 
 
 Produit::~Produit() {
-	// à faire
+	fournisseur_.enleverProduit(this);
 }
 
 // Methodes d'acces
@@ -34,10 +40,11 @@ double Produit::obtenirPrix() const
 
 Fournisseur& Produit::obtenirFournisseur() const
 {
-	// à faire
+	return fournisseur_;
 }
-TypeProduit Produit::retournerType() {
- // à faire
+TypeProduit Produit::retournerType() 
+{
+	return type_;	
 }
 
 // Methodes de modification
@@ -73,7 +80,7 @@ bool Produit::operator==(const Produit & produit) const
 			prix_ == produit.prix_ &&
 			reference_ == produit.reference_);
 }
-// pour lire un type enumeré
+// pour lire un type enumerï¿½
 inline istream & operator >> (istream & is, TypeProduit & typeProduit) {
 	unsigned int type = 0;
 	if (is >> type)

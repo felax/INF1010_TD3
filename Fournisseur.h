@@ -17,7 +17,7 @@ struct Satisfaction {
 #include "Produit.h"
 using namespace std;
 class Produit;
-class Fournisseur : public Usager
+class Fournisseur : public Usager 
 {
 public:
 	Fournisseur(const string&  nom, const string& prenom, int identifiant, const string& codePostal);
