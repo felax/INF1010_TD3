@@ -20,7 +20,8 @@ class Produit;
 class Fournisseur : public Usager 
 {
 public:
-	Fournisseur(const string&  nom, const string& prenom, int identifiant, const string& codePostal);
+	Fournisseur(const string&  nom, const string& prenom, int identifiant,
+	const string& codePostal);
 		
 	vector<Produit*> obtenirCatalogue() const;
 	Satisfaction obtenirSatisfaction() const;
@@ -28,7 +29,7 @@ public:
 	void modifierSatisfaction(Satisfaction satisfaction);	
 	void noter(int appreciation);
 
-	void ajouterProduit(Produit* produit);
+	void ajouterProduit(Produit* produit);  
 	void enleverProduit(Produit* produit);	
 	Fournisseur& operator=(const Fournisseur& fournisseur);
 
