@@ -36,7 +36,7 @@ void Fournisseur::ajouterProduit(Produit* produit)
 void Fournisseur::enleverProduit(Produit* produit)
 {
     bool found = false;
-    for (int i = 0; i < contenuCatalogue_.size() || found == true; i++) 
+    for (unsigned int i = 0; i < contenuCatalogue_.size() || found == true; i++) 
         if (*produit == *contenuCatalogue_[i]) {
             contenuCatalogue_[i] = contenuCatalogue_[contenuCatalogue_.size() - 1];
             contenuCatalogue_.pop_back();
@@ -48,9 +48,11 @@ Fournisseur& Fournisseur::operator=(const Fournisseur& fournisseur)
 {
     satisfaction_ = fournisseur.satisfaction_;
     contenuCatalogue_.clear();
-    for (int i = 0; i < fournisseur.contenuCatalogue_.size(); i++)
+    for (unsigned int i = 0; i < fournisseur.contenuCatalogue_.size(); i++)
         contenuCatalogue_.push_back(fournisseur.contenuCatalogue_[i]);
+
     static_cast<Usager>(*this) = static_cast<Usager>(fournisseur);
+    return *this;
 }
 
 ostream& operator<<(ostream & os, Fournisseur& fournisseur)

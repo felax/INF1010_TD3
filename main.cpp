@@ -64,7 +64,6 @@ int main()
 	// Le client achete les 7 premiers porduits
 	for (int i = 0; i < 7; i++)
 		martine.acheter(produits[i]);
-
 	// Afficher Panier du client
 	cout << martine;
 

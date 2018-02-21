@@ -41,10 +41,10 @@ public:
     friend ostream& operator<<(ostream& os, const Produit& produit);
    
 private :
+	Fournisseur& fournisseur_;
 	string nom_;
 	int reference_;
     double prix_;
-	Fournisseur& fournisseur_;
 	TypeProduit type_;
 
 };

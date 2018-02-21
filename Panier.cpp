@@ -40,11 +40,13 @@ double Panier::obtenirTotalApayer() const {
 
 double Panier::calculerTotalApayer()
 {
-	for (int i = 0; i < contenuPanier_.size(); i++) {
-		if (contenuPanier_[i]->retournerType() == TypeProduitAuxEncheres) 
+	totalAPayer_ = 0;
+	for (unsigned int i = 0; i < contenuPanier_.size(); i++) {
+		if (contenuPanier_[i]->retournerType() == TypeProduitAuxEncheres) {
 			if (idClient_ == static_cast<ProduitAuxEncheres*>
 							 (contenuPanier_[i])->obtenirIdentifiantClient())
 				totalAPayer_ += contenuPanier_[i]->obtenirPrix();
+		}
 		else {
 			if (static_cast<ProduitOrdinaire*>(contenuPanier_[i])->
 												obtenirEstTaxable())
@@ -54,6 +56,7 @@ double Panier::calculerTotalApayer()
 				totalAPayer_ += contenuPanier_[i]->obtenirPrix();
 		}
 	}
+	return totalAPayer_;
 }
 
 
@@ -97,14 +100,14 @@ Produit* Panier::trouverProduitPlusCher()
 
 ostream & operator<<(ostream & os,  const Panier & panier)
 {
-	for (int i = 0; i < panier.contenuPanier_.size(); i++) {
+	for (unsigned int i = 0; i < panier.contenuPanier_.size(); i++) {
 		os << endl;
 		if (panier.contenuPanier_[i]->retournerType() == TypeProduitAuxEncheres)
 			os << "ProduitAuxEncheres "
-			   << static_cast<ProduitAuxEncheres&>(*panier.contenuPanier_[i]);
+			   << static_cast<ProduitAuxEncheres&>(*(panier.contenuPanier_[i]));
 		else
 			os << "ProduitOrdinaire "
-			   << static_cast<ProduitOrdinaire&>(*panier.contenuPanier_[i]);
+			   << static_cast<ProduitOrdinaire&>(*(panier.contenuPanier_[i]));
 	}
 	return os;
 }

@@ -34,7 +34,7 @@ Client::Client(const Client & client) :
 		for (int i = 0; i < client.monPanier_->obtenirNombreContenu(); i++) {
 			monPanier_->ajouter(client.monPanier_->obtenirContenuPanier()[i]);
 		}
-		int idClient = this->obtenirIdentifiant();
+		//int idClient = this->obtenirIdentifiant();
 		monPanier_->modifierTotalAPayer(client.monPanier_->obtenirTotalApayer());
 	}
 }
