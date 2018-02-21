@@ -1,3 +1,3 @@
-Si tout est bien coder sans erreurs (fingers crossed), il reste Client, Panier et Main a faire.
-
-Produit.h:47:15: note: ‘Fournisseur& Produit::fournisseur_’ should be initialized
+Le code fonctionne et output correctement. 
+Il reste a ajouter les entetes et verifier la conformitee du code avec le guide de codage.
+P-e aussi reformater l'affichage pour que ca soit plus lisible.
