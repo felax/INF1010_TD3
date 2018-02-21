@@ -7,10 +7,10 @@
 #include "Panier.h"
 using namespace std;
 
-Panier::Panier(int idClient) {
-	// TODO
+Panier::Panier(int idClient): idClient_{idClient}
+{
+	totalAPayer_ = 0;
 }
-
 
 Panier::~Panier()
 {
@@ -38,9 +38,22 @@ double Panier::obtenirTotalApayer() const {
 }
 
 
-double Panier::calculerTotalApayer()  const
+double Panier::calculerTotalApayer()
 {
-	 // TODO
+	for (int i = 0; i < contenuPanier_.size(); i++) {
+		if (contenuPanier_[i]->retournerType() == TypeProduitAuxEncheres) 
+			if (idClient_ == static_cast<ProduitAuxEncheres*>
+							 (contenuPanier_[i])->obtenirIdentifiantClient())
+				totalAPayer_ += contenuPanier_[i]->obtenirPrix();
+		else {
+			if (static_cast<ProduitOrdinaire*>(contenuPanier_[i])->
+												obtenirEstTaxable())
+				totalAPayer_ += 
+				(contenuPanier_[i]->obtenirPrix() * (1 + TAUX_TAXE));
+			else
+				totalAPayer_ += contenuPanier_[i]->obtenirPrix();
+		}
+	}
 }
 
 
@@ -58,10 +71,8 @@ void Panier::modifierIdClient(int idClient) {
 
 
 
-void Panier::ajouter(Produit * prod)
+void Panier::ajouter(Produit * prod) 
 {
-	// TODO
-
 	contenuPanier_.push_back(prod);
 }
 
@@ -86,7 +97,14 @@ Produit* Panier::trouverProduitPlusCher()
 
 ostream & operator<<(ostream & os,  const Panier & panier)
 {
-	// TODO
-
-	
+	for (int i = 0; i < panier.contenuPanier_.size(); i++) {
+		os << endl;
+		if (panier.contenuPanier_[i]->retournerType() == TypeProduitAuxEncheres)
+			os << "ProduitAuxEncheres "
+			   << static_cast<ProduitAuxEncheres&>(*panier.contenuPanier_[i]);
+		else
+			os << "ProduitOrdinaire "
+			   << static_cast<ProduitOrdinaire&>(*panier.contenuPanier_[i]);
+	}
+	return os;
 }

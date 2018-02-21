@@ -82,7 +82,7 @@ bool Usager::operator == (const Usager & usager)
 }
 bool operator==(int indentifiant, const Usager& usager) {
 	return usager == indentifiant;
-}
+} 
 
 ostream& operator<<(ostream& os, const Usager& usager)
 {

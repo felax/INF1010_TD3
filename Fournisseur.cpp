@@ -11,7 +11,7 @@ Fournisseur::Fournisseur(const string&  nom, const string& prenom,
 {
     for (int i = 0; i < NIVEAUX_SATISFACTION; i++)
         satisfaction_.niveaux_[i] = 0;
-}
+} 
 
 vector<Produit*> Fournisseur::obtenirCatalogue() const
 {
@@ -57,7 +57,7 @@ ostream& operator<<(ostream & os, Fournisseur& fournisseur)
 {
     os << "Fournisseur: " << static_cast<Usager>(fournisseur) << "notes ";
     for (int i = 0; i < NIVEAUX_SATISFACTION; i++)
-        os << i << ": " << fournisseur.satisfaction_.niveaux_[i] << endl;
+        os << "\t\t" << i << ": " << fournisseur.satisfaction_.niveaux_[i] << endl;
 
     return os;
 }

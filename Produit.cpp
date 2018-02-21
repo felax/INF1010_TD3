@@ -7,14 +7,10 @@
 #include "Produit.h"
 
 Produit::Produit(Fournisseur& fournisseur, const string& nom, int reference, 
-				 double prix, TypeProduit type) 
+				 double prix, TypeProduit type) :fournisseur_{fournisseur}, 
+				 nom_{nom}, reference_{reference}, prix_{prix}, type_{type}
 {
-	fournisseur_ = fournisseur; //pointeur p-e?
 	fournisseur_.ajouterProduit(this);
-	nom_ = nom;
-	reference_ = reference;
-	prix_ = prix;
-	type_ = type; //pointeur?
 }
 
 

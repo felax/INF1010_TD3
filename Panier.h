@@ -18,18 +18,18 @@ class Panier
 {
 
 public:
-	
+	 
 	Panier(int idClient);
 	~Panier();
 
 	vector<Produit*>  obtenirContenuPanier()const;
 	int obtenirNombreContenu() const;
 	double obtenirTotalApayer() const;
-	double calculerTotalApayer() const ;
+	double calculerTotalApayer(); 
 	int obtenirIdClient() const;
 
 	void modifierTotalAPayer(double totalAPayer);
-	void modifierIdClient(int idClient);
+	void modifierIdClient(int idClient); 
 
 	// TODO : Cette methode est a modifier
 	void ajouter(Produit * prod);

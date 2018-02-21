@@ -7,7 +7,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include <string>
+#include <string> 
 #include "Usager.h"
 #include "Panier.h"
 #include "ProduitOrdinaire.h"
@@ -18,7 +18,8 @@ class Client : public Usager
 {
 
 public:
-	Client(const string&  nom, const string& prenom, int identifiant, const string& codePostal, long date);
+	Client(const string&  nom, const string& prenom, int identifiant, 
+			const string& codePostal, long date);
 	~Client();
 	Client(const Client& client);
 	
@@ -29,7 +30,8 @@ public:
 
 	void acheter(ProduitOrdinaire * prod);
 	void livrerPanier();
-	void miserProduit(ProduitAuxEncheres* produitAuxEncheres, double montantMise);
+	void miserProduit(ProduitAuxEncheres* produitAuxEncheres, 
+						double montantMise); 
 
 	Client& operator=(const Client& client);
 	friend ostream& operator<<(ostream& os, const Client& client);

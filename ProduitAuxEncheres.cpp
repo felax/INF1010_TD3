@@ -26,6 +26,16 @@ double ProduitAuxEncheres::obtenirPrixBase() const
     return prixBase_;
 }
 
+void ProduitAuxEncheres::modifierIdentifiantClient(int identifiantClient)
+{
+    identifiantClient_ = identifiantClient;
+}
+
+void ProduitAuxEncheres::modifierPrixBase(double prixBase)
+{
+    prixBase_ = prixBase;
+}
+
 ostream& operator<<(ostream& os, const ProduitAuxEncheres& produit)
 {
 	os  << static_cast<Produit>(produit)

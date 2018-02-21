@@ -8,6 +8,14 @@
 #include "Fournisseur.h"
 
 
+Client::Client(const string&  nom, const string& prenom, int identifiant, 
+				const string& codePostal, long date)
+				:Usager(nom, prenom, identifiant, codePostal), 
+				dateNaissance_{date}
+{
+	monPanier_ = nullptr;
+}
+
 
 Client::~Client()
 {
@@ -57,9 +65,11 @@ void Client::acheter(ProduitOrdinaire * prod)
 		monPanier_ = new Panier(this->obtenirIdentifiant());
 	monPanier_->ajouter(prod);
 	// obtenir une note aléatoire
-	
+	int note = rand() % 5;
+	srand(time(NULL));
+	prod->obtenirFournisseur().noter(note);
 	// faire la mise à jour de la satisfaction au fournisseur
-	
+		
 }
 
 void Client::livrerPanier()
@@ -70,9 +80,14 @@ void Client::livrerPanier()
 }
 
 
-void Client::miserProduit(ProduitAuxEncheres* produitAuxEncheres, double montantMise) {
+void Client::miserProduit(ProduitAuxEncheres* produitAuxEncheres, 
+						  double montantMise) {
 	// à faire
-	
+	if (montantMise > produitAuxEncheres->obtenirPrix()) {
+		produitAuxEncheres->modifierPrix(montantMise);
+		produitAuxEncheres->modifierIdentifiantClient(this->obtenirIdentifiant());
+		this->monPanier_->ajouter(produitAuxEncheres);
+	}
 }
 
 Client & Client::operator=(const Client & client)
@@ -97,6 +112,12 @@ Client & Client::operator=(const Client & client)
 
 ostream & operator<<(ostream & os, const Client & client)
 {
-	
 	// à faire
+	os << "Client : " << static_cast<Usager>(client) 
+	<< "Le panier de " << client.obtenirPrenom();
+	if (client.monPanier_ == nullptr)
+		os << " est vide!\n";
+	else
+	   os << ":\n" << *client.monPanier_ << endl;
+	return os;
 }
