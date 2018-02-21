@@ -36,7 +36,7 @@ void Fournisseur::ajouterProduit(Produit* produit)
 void Fournisseur::enleverProduit(Produit* produit)
 {
     bool found = false;
-    for (unsigned int i = 0; i < contenuCatalogue_.size() || found == true; i++) 
+    for (unsigned int i = 0; i < contenuCatalogue_.size() && found == false; i++) 
         if (*produit == *contenuCatalogue_[i]) {
             contenuCatalogue_[i] = contenuCatalogue_[contenuCatalogue_.size() - 1];
             contenuCatalogue_.pop_back();

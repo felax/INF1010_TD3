@@ -14,7 +14,8 @@ Produit::Produit(Fournisseur& fournisseur, const string& nom, int reference,
 }
 
 
-Produit::~Produit() {
+Produit::~Produit() 
+{
 	fournisseur_.enleverProduit(this);
 }
 
@@ -77,7 +78,8 @@ bool Produit::operator==(const Produit & produit) const
 			reference_ == produit.reference_);
 }
 // pour lire un type enumer�
-inline istream & operator >> (istream & is, TypeProduit & typeProduit) {
+inline istream & operator >> (istream & is, TypeProduit & typeProduit) 
+{
 	unsigned int type = 0;
 	if (is >> type)
 		typeProduit = static_cast<TypeProduit>(type);

@@ -9,9 +9,9 @@
 
 
 Client::Client(const string&  nom, const string& prenom, int identifiant, 
-				const string& codePostal, long date)
-				:Usager(nom, prenom, identifiant, codePostal), 
-				dateNaissance_{date}
+			   const string& codePostal, long date)
+			   :Usager(nom, prenom, identifiant, codePostal), 
+			   dateNaissance_{date}
 {
 	monPanier_ = nullptr;
 }
@@ -24,7 +24,8 @@ Client::~Client()
 }
 
 Client::Client(const Client & client) :
-	Usager(client.obtenirNom(), client.obtenirPrenom(), client.obtenirIdentifiant(), client.obtenirCodePostal()),	
+	Usager(client.obtenirNom(), client.obtenirPrenom(), 
+		   client.obtenirIdentifiant(), client.obtenirCodePostal()),	
 	dateNaissance_{ client.dateNaissance_ }
 {
 	if (client.monPanier_ == nullptr)
@@ -34,7 +35,7 @@ Client::Client(const Client & client) :
 		for (int i = 0; i < client.monPanier_->obtenirNombreContenu(); i++) {
 			monPanier_->ajouter(client.monPanier_->obtenirContenuPanier()[i]);
 		}
-		//int idClient = this->obtenirIdentifiant();
+		int idClient = this->obtenirIdentifiant();
 		monPanier_->modifierTotalAPayer(client.monPanier_->obtenirTotalApayer());
 	}
 }
@@ -66,7 +67,6 @@ void Client::acheter(ProduitOrdinaire * prod)
 	monPanier_->ajouter(prod);
 	// obtenir une note aléatoire
 	int note = rand() % 5;
-	srand(time(NULL));
 	prod->obtenirFournisseur().noter(note);
 	// faire la mise à jour de la satisfaction au fournisseur
 		
@@ -80,12 +80,13 @@ void Client::livrerPanier()
 }
 
 
-void Client::miserProduit(ProduitAuxEncheres* produitAuxEncheres, 
-						  double montantMise) {
+void Client::miserProduit(ProduitAuxEncheres* produitAuxEncheres, double montantMise) {
 	// à faire
 	if (montantMise > produitAuxEncheres->obtenirPrix()) {
 		produitAuxEncheres->modifierPrix(montantMise);
 		produitAuxEncheres->modifierIdentifiantClient(this->obtenirIdentifiant());
+		if (monPanier_ == nullptr)
+			monPanier_ = new Panier(this->obtenirIdentifiant());
 		this->monPanier_->ajouter(produitAuxEncheres);
 	}
 }
@@ -118,6 +119,7 @@ ostream & operator<<(ostream & os, const Client & client)
 	if (client.monPanier_ == nullptr)
 		os << " est vide!\n";
 	else
-	   os << ":\n" << *client.monPanier_ << endl;
+		os << ":\n" << static_cast<Panier>(*client.monPanier_) << endl
+		<< "---->total a payer: " << client.monPanier_->calculerTotalApayer() << endl;
 	return os;
 }

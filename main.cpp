@@ -11,6 +11,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <ctime>
 using namespace std;
 
 const int  NB_PRODUCTS = 15;
@@ -25,6 +26,7 @@ const int  NB_PRODUCTS = 15;
 
 int main()
 {
+	srand(time(NULL));
 	// Creez un objet de classe client à l'aide du constructeur
 	Client martine("Bellaiche", "Martine", 1111, "H2T3A6", 199004);
 
@@ -59,7 +61,7 @@ int main()
 
 	// Creez un produit aux encheres
 	ProduitAuxEncheres* prodAuxEncheres = new ProduitAuxEncheres(poly, "pAuxEncheres", 20,
-		100, TypeProduitAuxEncheres);
+		100, TypeProduitAuxEncheres, 100);
 
 	// Le client achete les 7 premiers porduits
 	for (int i = 0; i < 7; i++)
@@ -99,5 +101,5 @@ int main()
 		delete produits[i];
 	}
 	delete prodAuxEncheres;
-	
+	system("pause");
 }

@@ -101,13 +101,13 @@ Produit* Panier::trouverProduitPlusCher()
 ostream & operator<<(ostream & os,  const Panier & panier)
 {
 	for (unsigned int i = 0; i < panier.contenuPanier_.size(); i++) {
-		os << endl;
+
 		if (panier.contenuPanier_[i]->retournerType() == TypeProduitAuxEncheres)
-			os << "ProduitAuxEncheres "
-			   << static_cast<ProduitAuxEncheres&>(*(panier.contenuPanier_[i]));
+			os << *static_cast<ProduitAuxEncheres*>(panier.contenuPanier_[i]);
+
 		else
-			os << "ProduitOrdinaire "
-			   << static_cast<ProduitOrdinaire&>(*(panier.contenuPanier_[i]));
+			os << *static_cast<ProduitOrdinaire*>(panier.contenuPanier_[i]); 
+		os << endl << endl;
 	}
 	return os;
 }

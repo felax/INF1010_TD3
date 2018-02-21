@@ -1,0 +1,153 @@
+ non Identiques 
+Client :  Usager :	 nom : Client
+	 prenom : autre
+	 codePostal: h3T3A7
+Le panier de autre est vide!
+Fournisseur:  Usager :	 nom : Ecole
+	 prenom : Polytechnique
+	 codePostal: H3T 1J4
+notes 		0: 0
+		1: 0
+		2: 0
+		3: 0
+		4: 0
+Client :  Usager :	 nom : Bellaiche
+	 prenom : Martine
+	 codePostal: H2T3A6
+Le panier de Martine:
+ProduitOrdinaire Produit : nom: p0
+ 	 	 ref : 0
+ 	 	 prix actuel : 12.56
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p1
+ 	 	 ref : 1
+ 	 	 prix actuel : 50
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p2
+ 	 	 ref : 2
+ 	 	 prix actuel : 34
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p3
+ 	 	 ref : 3
+ 	 	 prix actuel : 56
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p4
+ 	 	 ref : 4
+ 	 	 prix actuel : 77
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p5
+ 	 	 ref : 5
+ 	 	 prix actuel : 91
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p6
+ 	 	 ref : 6
+ 	 	 prix actuel : 21
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+
+---->total a payer: 392.794
+Fournisseur:  Usager :	 nom : Ecole
+	 prenom : Polytechnique
+	 codePostal: H3T 1J4
+notes 		0: 1
+		1: 1
+		2: 3
+		3: 0
+		4: 2
+Produit aux encheres Produit : nom: pAuxEncheres
+ 	 	 ref : 20
+ 	 	 prix actuel : 500
+	 Fournisseur Ecole
+Prix de base 100
+Identifiant Client 1111
+
+Produit aux encheres Produit : nom: pAuxEncheres
+ 	 	 ref : 20
+ 	 	 prix actuel : 555
+	 Fournisseur Ecole
+Prix de base 100
+Identifiant Client 777
+
+Client :  Usager :	 nom : Bellaiche
+	 prenom : Martine
+	 codePostal: H2T3A6
+Le panier de Martine:
+ProduitOrdinaire Produit : nom: p0
+ 	 	 ref : 0
+ 	 	 prix actuel : 12.56
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p1
+ 	 	 ref : 1
+ 	 	 prix actuel : 50
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p2
+ 	 	 ref : 2
+ 	 	 prix actuel : 34
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p3
+ 	 	 ref : 3
+ 	 	 prix actuel : 56
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p4
+ 	 	 ref : 4
+ 	 	 prix actuel : 77
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p5
+ 	 	 ref : 5
+ 	 	 prix actuel : 91
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+ProduitOrdinaire Produit : nom: p6
+ 	 	 ref : 6
+ 	 	 prix actuel : 21
+	 Fournisseur Ecole
+ 	 	 est Taxable: true
+
+Produit aux encheres Produit : nom: pAuxEncheres
+ 	 	 ref : 20
+ 	 	 prix actuel : 555
+	 Fournisseur Ecole
+Prix de base 100
+Identifiant Client 777
+
+
+
+---->total a payer: 392.794
+
+ Produit le plus cher Produit : nom: pAuxEncheres
+ 	 	 ref : 20
+ 	 	 prix actuel : 555
+	 Fournisseur Ecole
+Fournisseur:  Usager :	 nom : Ecole
+	 prenom : Polytechnique
+	 codePostal: H3T 1J4
+notes 		0: 1
+		1: 1
+		2: 3
+		3: 0
+		4: 2
+
